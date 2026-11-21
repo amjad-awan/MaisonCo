@@ -4,11 +4,7 @@
 import { useEffect, useState } from "react";
 import { motion, useReducedMotion } from "framer-motion";
 
-export default function DoorIntro({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function DoorIntro() {
   const [opened, setOpened] = useState(false);
   const shouldReduceMotion = useReducedMotion();
 
@@ -22,9 +18,7 @@ export default function DoorIntro({
     return () => clearTimeout(timer);
   }, [shouldReduceMotion]);
 
-  if (shouldReduceMotion) {
-    return <>{children}</>;
-  }
+ 
 
   const doorTransition = {
     duration: 2.8,
@@ -33,7 +27,7 @@ export default function DoorIntro({
 
   return (
     <>
-      {children}
+    
 
       <div
         className="fixed inset-0 z-[9999] overflow-hidden pointer-events-none"

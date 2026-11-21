@@ -36,9 +36,8 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <body>
-            <DoorIntro/>
+        <DoorIntro />
         <Motion>
-
           <a
             href="#main"
             className="sr-only focus:not-sr-only focus:fixed focus:z-[60] focus:bg-white focus:p-3"
