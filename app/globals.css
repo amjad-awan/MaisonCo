@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* RGB channels, so Tailwind opacity utilities (bg-ivory/95, border-ink/20…) keep working */
+  --ivory: 250 248 244;
+  --beige: 240 235 226;
+  --ink: 18 35 59;
+  --stone: 91 101 115;
+  --olive: 30 82 102;   /* primary action: deep teal */
+  --gold: 201 165 107;  /* brass, for dark backgrounds */
+  --brass: 148 106 58;  /* dark brass, for small text on light backgrounds */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+body {
+  @apply bg-ivory text-ink font-sans antialiased leading-relaxed;
+}
+:focus-visible {
+  outline: 2px solid rgb(var(--gold));
+  outline-offset: 3px;
+}
+.label {
+  @apply text-xs font-semibold uppercase tracking-[0.18em] text-brass;
+}
+/* labels on dark sections (footer, overlays) use the lighter brass */
+.bg-ink .label,
+.text-white .label {
+  color: rgb(var(--gold));
+}
+.h2 {
+  @apply font-serif text-4xl md:text-5xl leading-[1.1];
+}
+.btn {
+  @apply inline-flex items-center justify-center gap-2 px-7 py-3.5 text-sm font-semibold tracking-wide transition-colors duration-300;
+}
+.btn-solid {
+  @apply bg-olive text-white hover:bg-ink;
+}
+.btn-light {
+  @apply bg-white text-ink hover:bg-beige;
+}
+.btn-line {
+  @apply border border-white/70 text-white hover:bg-white hover:text-ink;
+}
+.btn-dark {
+  @apply border border-ink/30 hover:bg-ink hover:text-white;
+}
+.field {
+  @apply w-full bg-transparent border-b border-ink/20 py-2 text-sm focus:border-olive outline-none;
+}
